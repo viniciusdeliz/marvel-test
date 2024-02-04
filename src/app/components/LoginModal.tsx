@@ -1,4 +1,5 @@
 import LoginForm from "./LoginForm";
+import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 
 export default function LoginModal() {
     return (
@@ -13,7 +14,7 @@ export default function LoginModal() {
             <LoginForm />
             <h5
               className="text-red-600 text-[.6875rem] font-regular text-right mt-5 tracking-tighter">
-              Esqueceu a senha?
+              <span><i className="inline-block"><QuestionMarkCircleIcon className="w-3 h-3" /></i> Esqueceu a senha?</span>
             </h5>
           </div>
         </section>
