@@ -29,10 +29,10 @@ export default function UserDashboard() {
     api.get(url('/series/18142/characters?')).then(res => { setCharacters(res.data.data.results); setLastFetchedIndex(res.data.data.results.length - 1); });
   }, []);
   return (
-    <section className="inner-dashboard flex flex-wrap gap-2.5">
-      {characters.length ? characters.map(el => (
+    <section className="inner-dashboard grid grid-cols-4 grid-rows-3 gap-3 h-3/4">
+      {characters.length ? characters.map((el, index) => index + 1 > maxItemsPerPage ? null : (
         <div
-          className="character-card-wrapper rounded-lg bg-slate-200 h-[9.5rem] w-[calc(25%-.625rem)]"
+          className={`character-card-wrapper rounded-lg bg-slate-200 text-black ${index < (maxItemsPerPage - 2) ? '' : 'col-span-2'}`}
           key={el.id}>
           <div className="card-inner flex h-full rounded-2xl px-2.5 py-3.5 gap-4">
             <figure className="w-24 h-full shrink-0">
