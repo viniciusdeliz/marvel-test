@@ -24,7 +24,7 @@ export function getAPIClient(ctx?: any) {
 
 export function getMarvelAPI(ctx?: any) {
   const api = axios.create({
-    baseURL: 'http://gateway.marvel.com/v1/public/'
+    baseURL: 'https://gateway.marvel.com/v1/public/'
   })
 
   api.interceptors.request.use(config => {
