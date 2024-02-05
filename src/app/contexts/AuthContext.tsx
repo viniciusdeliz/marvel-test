@@ -13,7 +13,7 @@ type User = {
   avatar_url: string;
 }
 
-type SignInData = {
+export type SignInData = {
   email: string;
   password: string;
 }
