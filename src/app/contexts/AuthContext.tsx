@@ -36,7 +36,7 @@ export function AuthProvider({ children }: Readonly<{
 
   useEffect(() => {
     console.log('useEffect RUNNING!');
-    const { 'nextauth.token': token, token: userEmail } = parseCookies()
+    const { 'nextauth.token': token, token: userEmail } = parseCookies();
     console.log('is there a next auth token?', token, userEmail);
     if (token) {
       recoverUserInformation(token).then(response => {
