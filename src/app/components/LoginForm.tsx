@@ -4,12 +4,13 @@ import { AuthContext } from '../contexts/AuthContext';
 import { useForm } from 'react-hook-form'
 import { AtSymbolIcon, ArrowRightEndOnRectangleIcon, EyeIcon } from '@heroicons/react/24/outline'
 import InputValidatorAlert from './InputValidatorAlert';
+import type { SignInData } from '../contexts/AuthContext';
 
 export default function LoginForm() {
   const { signIn, isAuthenticated, user } = useContext(AuthContext);
   const { register, formState: { errors }, handleSubmit } = useForm({ criteriaMode: 'all' });
   
-
+  async function handleSignIn(data: SignInData) {
   async function handleSignIn(data) {
     await signIn(data)
   }
