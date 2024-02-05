@@ -58,7 +58,7 @@ export default function LoginForm() {
       <InputValidatorAlert errors={errors} inputName={'password'}/>
 
       <button
-        className="bg-[#081B4E] rounded-lg h-14 text-2xl text-zinc-50 font-semibold"
+        className="bg-[#081B4E] rounded-lg h-14 text-2xl text-zinc-50 font-semibold tracking-tight"
         type="submit">
         entrar <ArrowRightEndOnRectangleIcon className="inline h-4 w-4" />
       </button>
