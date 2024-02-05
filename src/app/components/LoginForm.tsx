@@ -8,10 +8,9 @@ import type { SignInData } from '../contexts/AuthContext';
 
 export default function LoginForm() {
   const { signIn, isAuthenticated, user } = useContext(AuthContext);
-  const { register, formState: { errors }, handleSubmit } = useForm({ criteriaMode: 'all' });
-  
-  async function handleSignIn(data: SignInData) {
-    await signIn(data)
+  const { register, formState: { errors }, handleSubmit } = useForm<SignInData>({ criteriaMode: 'all' });
+  const handleSignIn: SubmitHandler<SignInData> = async (data) => {
+    await signIn(data);
   }
 
   const emailValidationObj = {
