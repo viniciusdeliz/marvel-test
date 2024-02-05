@@ -21,7 +21,7 @@ const params = new URLSearchParams({
 });
 
 
-export default function userDashboard() {
+export default function UserDashboard() {
   const [characters, setCharacters] = useState<CharacterDataProperties[]>([]);
   const [lastFetchedIndex, setLastFetchedIndex] = useState(0);
   const url = (url: string) => url + params;
