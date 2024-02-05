@@ -35,9 +35,7 @@ export default function LoginForm() {
     }  
   };
 
-  return <>
-    <style jsx>{`
-    `}</style>
+  return (
     <form className="flex flex-col" onSubmit={handleSubmit(handleSignIn)}>
       <div className="input-holder relative px-0.5">
         <i className="absolute right-4 top-6"><AtSymbolIcon className="h-5 w-5 text-blue-900" /></i>
@@ -64,5 +62,5 @@ export default function LoginForm() {
         entrar <ArrowRightEndOnRectangleIcon className="inline h-4 w-4" />
       </button>
     </form>
-  </>
+  )
 }
