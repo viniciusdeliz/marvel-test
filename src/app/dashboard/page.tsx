@@ -24,6 +24,7 @@ const params = new URLSearchParams({
 export default function UserDashboard() {
   const [characters, setCharacters] = useState<CharacterDataProperties[]>([]);
   const [lastFetchedIndex, setLastFetchedIndex] = useState(0);
+  const [maxItemsPerPage, setMaxItemsPerPage] = useState(10);
   const url = (url: string) => url + params;
   useEffect(() => {
     api.get(url('/series/18142/characters?')).then(res => { setCharacters(res.data.data.results); setLastFetchedIndex(res.data.data.results.length - 1); });
