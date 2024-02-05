@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { AtSymbolIcon, ArrowRightEndOnRectangleIcon, EyeIcon } from '@heroicons/react/24/outline'
 import InputValidatorAlert from './InputValidatorAlert';
 import type { SignInData } from '../contexts/AuthContext';
+import type { SubmitHandler } from 'react-hook-form';
 
 export default function LoginForm() {
   const { signIn, isAuthenticated, user } = useContext(AuthContext);
