@@ -38,14 +38,14 @@ export default function SideNav() {
           const CustomIcon = icons[el.icon];
           const isActiveLink = pathname === el.href;
           return (
-            <Link key={index} className={`${isActiveLink ? 'active text-orange-600' : ''} mt-2 pt-2 last:pb-5`} href='/dashboard'>
+            <Link key={index} className={`${isActiveLink ? 'active text-orange-600' : 'text-black'} mt-2 pt-2 last:pb-5`} href='/dashboard'>
               <CustomIcon className="w-5 h-5 inline-block mr-3" />
               {el.title}
             </Link>
           )
         })}
       </section>
-      <section className="nav-action py-8 text-xs pl-6">
+      <section className="nav-action py-8 text-xs text-black pl-6">
       <Link onClick={() => signOut(userToken)} href='/'><ExitIcon className="w-5 h-5 inline-block mr-3" />Sair</Link>
       </section>
     </div>
