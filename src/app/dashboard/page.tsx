@@ -12,9 +12,6 @@ interface CharacterDataProperties {
 
 'use client';
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { getMarvelAPI } from "../services/axios";
 import { useEffect, useState } from "react";
 
@@ -33,12 +30,6 @@ export default function UserDashboard() {
     api.get(url('/series/18142/characters?')).then(res => { setCharacters(res.data.data.results.reverse()); setLastFetchedIndex(res.data.data.results.length - 1); });
   }, []);
   return (
-    <div className="dashboard-wrapper">
-      <ToastContainer />
-      <nav className="search-bar h-16 border-b border-slate-100 box-border flex flex-col justify-center relative">
-        <i className="absolute left-9 top-6"><MagnifyingGlassIcon className="h-4 w-4 text-blue-900" /></i>
-        <input onChange={() => toast("Busca ainda não implementada!")}  type="text" className="ml-16 text-black placeholder:text-xs placeholder:text-gray-500" placeholder="Busque um agente" />
-      </nav>
       <section className="inner-dashboard grid grid-cols-4 grid-rows-3 gap-2.5 h-3/4 px-6 py-4 pb-24">
         {characters.length ? characters.map((el, index) => index + 1 > maxItemsPerPage ? null : (
           <div
@@ -51,13 +42,12 @@ export default function UserDashboard() {
               <div className="character-info overflow-hidden relative">
                 <h1 className="font-semibold text-md truncate" title={el.name}>{el.name}</h1>
                 <div className="description-holder max-h-[calc(100%-1.75rem)] overflow-hidden ">
-                  <p className="overflow-hidden text-ellipsis text-xs font-light line-clamp-[7]">{el.description}</p>
+                  <p className="overflow-hidden text-ellipsis text-xs font-light line-clamp-5">{el.description}</p>
                 </div>
               </div>
             </div>
           </div>
         )) : null}
       </section>
-    </div>
   )
 }
