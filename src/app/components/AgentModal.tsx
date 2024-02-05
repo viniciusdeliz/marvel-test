@@ -42,7 +42,7 @@ export default function AgentModal() {
             <Link className="self-end w-[30%] h-12" href="/dashboard">
               <button className="bg-[#081B4E] w-full h-full rounded-lg text-zinc-50">
                 Entrar
-            </button>
+              </button>
             </Link>
           </div>
         </section>
