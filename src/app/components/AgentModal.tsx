@@ -7,7 +7,7 @@ interface CharacterDataProperties {
 
 import Link from "next/link";
 import { getMarvelAPI } from "../services/axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 import Select from 'react-select';
 const api = getMarvelAPI({});
 const params = new URLSearchParams({
@@ -23,6 +23,8 @@ export default function AgentModal() {
     api.get(url('/series/22547/characters?')).then(res => { setCharacters(res.data.data.results) });
   }, []);
 
+  const selectOptions = characters.map((el ,index) => ({...el, label: el.name, value: el.id }));
+
     return (
         <section className="coolest-agent-page flex w-full grow justify-end mt-2">
           <div className="login-modal flex flex-col bg-white rounded-[1.75rem] w-[31%] h-[20rem] p-[2.25rem] pt-[2rem] self-center">
@@ -34,11 +36,14 @@ export default function AgentModal() {
             </p>
             <Select
               className="h-14 text-md text-slate-900 mt-4"
+              instanceId={useId()}
               placeholder="Selecionar personagem"
-              options={[...characters.map(el => ({...el, label: el.name, value: el.id }))]} />
-            <button className="bg-[#081B4E] w-[30%] self-end h-12 rounded-lg text-zinc-50">
-              <Link href="/dashboard">Entrar</Link>
+              options={selectOptions} />
+            <Link className="self-end w-[30%] h-12" href="/dashboard">
+              <button className="bg-[#081B4E] w-full h-full rounded-lg text-zinc-50">
+                Entrar
             </button>
+            </Link>
           </div>
         </section>
     );
