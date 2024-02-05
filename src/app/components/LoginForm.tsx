@@ -11,7 +11,6 @@ export default function LoginForm() {
   const { register, formState: { errors }, handleSubmit } = useForm({ criteriaMode: 'all' });
   
   async function handleSignIn(data: SignInData) {
-  async function handleSignIn(data) {
     await signIn(data)
   }
 
