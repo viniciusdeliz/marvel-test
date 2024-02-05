@@ -21,7 +21,8 @@ export type SignInData = {
 type AuthContextType = {
   isAuthenticated: boolean;
   user: User;
-  signIn: (data: SignInData) => Promise<void>
+  signIn: (data: SignInData) => Promise<void>;
+  signOut: () => void;
 }
 
 export const AuthContext = createContext({} as AuthContextType)
@@ -64,9 +65,9 @@ export function AuthProvider({ children }) {
     // Router.push('/dashboard');
   }
 
-  function signOut() {
+  function signOut(): void {
     destroyCookie(undefined, 'nextauth.token');
-    setUser(null);
+    setUser({ email: '' });
   }
 
   return (
