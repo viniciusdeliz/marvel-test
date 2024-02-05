@@ -19,7 +19,7 @@ export async function signInRequest(data: SignInRequestData) {
   }
 }
 
-export async function recoverUserInformation(token) {
+export async function recoverUserInformation(token: string) {
   await delay()
   const allCookies = parseCookies();
   const userEmail = allCookies[token];
