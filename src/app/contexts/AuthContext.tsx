@@ -67,7 +67,8 @@ export function AuthProvider({ children }: Readonly<{
     // Router.push('/dashboard');
   }
 
-  function signOut(): void {
+  function signOut(token: string): void {
+    destroyCookie(undefined, token);
     destroyCookie(undefined, 'nextauth.token');
     setUser({ email: '' });
   }
