@@ -27,7 +27,7 @@ export default function UserDashboard() {
   const [maxItemsPerPage, setMaxItemsPerPage] = useState(10);
   const url = (url: string) => url + params;
   useEffect(() => {
-    api.get(url('/series/18142/characters?')).then(res => { setCharacters(res.data.data.results); setLastFetchedIndex(res.data.data.results.length - 1); });
+    api.get(url('/series/18142/characters?')).then(res => { setCharacters(res.data.data.results.reverse()); setLastFetchedIndex(res.data.data.results.length - 1); });
   }, []);
   return (
     <section className="inner-dashboard grid grid-cols-4 grid-rows-3 gap-3 h-3/4">
