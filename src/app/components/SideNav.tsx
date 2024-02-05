@@ -2,6 +2,9 @@
 import Link from "next/link";
 import * as HIcons from '@heroicons/react/24/outline';
 import { usePathname } from 'next/navigation';
+import { AuthContext } from '../contexts/AuthContext';
+import { useContext } from "react";
+import { parseCookies } from "nookies";
 
 const links = [
   {
@@ -17,6 +20,10 @@ const links = [
 ];
 
 export default function SideNav() {
+  const { signOut } = useContext(AuthContext);
+  const cookies = parseCookies();
+  const userToken = cookies['nextauth.token'];
+  
   const pathname = usePathname();
   const {...icons} = HIcons;
   const ExitIcon = icons['ArrowUturnLeftIcon'];
@@ -39,7 +46,7 @@ export default function SideNav() {
         })}
       </section>
       <section className="nav-action py-8 text-xs pl-6">
-      <Link href='/'><ExitIcon className="w-5 h-5 inline-block mr-3" />Sair</Link>
+      <Link onClick={() => signOut(userToken)} href='/'><ExitIcon className="w-5 h-5 inline-block mr-3" />Sair</Link>
       </section>
     </div>
   )
