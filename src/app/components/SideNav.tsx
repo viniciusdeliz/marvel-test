@@ -13,7 +13,7 @@ const links = [
     icon: 'RectangleGroupIcon',
   },
   {
-    href: '/profile',
+    href: '/dashboard/profile',
     title: 'Perfil',
     icon: 'UserIcon',
   },
@@ -38,7 +38,7 @@ export default function SideNav() {
           const CustomIcon = icons[el.icon];
           const isActiveLink = pathname === el.href;
           return (
-            <Link key={index} className={`${isActiveLink ? 'active text-orange-600' : 'text-black'} mt-2 pt-2 last:pb-5`} href='/dashboard'>
+            <Link key={index} className={`${isActiveLink ? 'active text-orange-600' : 'text-black'} mt-2 pt-2 last:pb-5`} href={el.href}>
               <CustomIcon className="w-5 h-5 inline-block mr-3" />
               {el.title}
             </Link>
