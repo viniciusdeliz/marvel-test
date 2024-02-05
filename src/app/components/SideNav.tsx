@@ -27,7 +27,7 @@ export default function SideNav() {
       </section>
       <section className="nav-links border-b border-slate-100 flex flex-col text-xs font-medium pl-6">
         {links.map((el, index) => {
-          const {...icons} = HIcons;
+          const {...icons}: any = HIcons;
           const CustomIcon = icons[el.icon];
           const isActiveLink = pathname === el.href;
           return (
