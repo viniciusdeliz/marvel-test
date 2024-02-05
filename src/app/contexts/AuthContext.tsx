@@ -32,7 +32,7 @@ export function AuthProvider({ children }: Readonly<{
 }>) {
   const [user, setUser] = useState<User>({ email: '' });
 
-  const isAuthenticated = !!user;
+  const isAuthenticated = !!user.email;
 
   useEffect(() => {
     console.log('useEffect RUNNING!');
