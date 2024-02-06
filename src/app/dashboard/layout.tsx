@@ -11,7 +11,7 @@ export default function DashboardLayout({ children }: Readonly<{children: React.
 
     return (
       <section className="dashboard bg-white flex h-screen">
-        <aside className="pt-5 shadow-[0_6px_18px_0px_rgba(0,0,0,0.06)]">
+        <aside className="pt-5 shadow-[0_6px_18px_0px_rgba(0,0,0,0.06)] w-32 lg:w-[16rem]">
           <SideNav />
         </aside>
         <div className="dashboard-wrapper">

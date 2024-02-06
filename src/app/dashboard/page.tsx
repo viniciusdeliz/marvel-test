@@ -30,13 +30,13 @@ export default function UserDashboard() {
     api.get(url('/series/18142/characters?')).then(res => { setCharacters(res.data.data.results.reverse()); setLastFetchedIndex(res.data.data.results.length - 1); });
   }, []);
   return (
-      <section className="inner-dashboard grid grid-cols-4 grid-rows-3 gap-2.5 h-3/4 px-6 py-4 pb-24">
+      <section className="inner-dashboard grid grid-cols-2 overflow-auto md:overflow-clip lg:grid-cols-4 lg:grid-rows-3 gap-2.5 h-3/4 px-6 py-4 pb-24">
         {characters.length ? characters.map((el, index) => index + 1 > maxItemsPerPage ? null : (
           <div
             className={`character-card-wrapper rounded-2xl bg-gray-100 text-black ${index < (maxItemsPerPage - 2) ? '' : 'col-span-2'}`}
             key={el.id}>
             <div className="card-inner flex h-full rounded-xl px-2.5 py-3.5 gap-4">
-              <figure className="w-[5.25rem] h-full shrink-0">
+              <figure className="w-1/3 lg:w-[5.25rem] h-full shrink-0">
                 <img className="w-full h-full object-cover rounded-2xl" src={`${el.thumbnail.path}.${el.thumbnail.extension}`} />
               </figure>
               <div className="character-info overflow-hidden relative">
