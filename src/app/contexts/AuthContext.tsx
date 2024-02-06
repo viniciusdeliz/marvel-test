@@ -23,6 +23,7 @@ type AuthContextType = {
   user: User;
   signIn: (data: SignInData) => Promise<void>;
   signOut: (token: string) => void;
+  setCoolestChar: (char: string) => void;
 }
 
 export const AuthContext = createContext({} as AuthContextType)
@@ -61,20 +62,25 @@ export function AuthProvider({ children }: Readonly<{
     });
 
     api.defaults.headers['Authorization'] = `Bearer ${token}`;
-    console.log('setting user... and token', token, user);
-    setUser(user)
+    setUser(user);
+  }
 
-    // Router.push('/dashboard');
+  function setCoolestChar(char: string) {
+    const { 'nextauth.token': val } = parseCookies();
+    setCookie(undefined, `${val}-coolest`, char, {
+      maxAge: 60 * 60 * 1,
+    });
   }
 
   function signOut(token: string): void {
     destroyCookie(undefined, token);
     destroyCookie(undefined, 'nextauth.token');
+    destroyCookie(undefined, `${token}-coolest`);
     setUser({ email: '' });
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signOut, setCoolestChar }}>
       {children}
     </AuthContext.Provider>
   )
