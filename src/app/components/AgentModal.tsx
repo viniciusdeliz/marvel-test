@@ -24,7 +24,7 @@ export default function AgentModal() {
   const { setCoolestChar } = useContext(AuthContext);
   function handleChange(data: any) {
     setSelectedAgent(data.name);
-    setCoolestChar(selectedAgent);
+    setCoolestChar(data.name);
   }
   const [selectedAgent, setSelectedAgent] = useState('');
   const [characters, setCharacters] = useState<CharacterDataProperties[]>([]);
