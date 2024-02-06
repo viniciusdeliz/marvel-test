@@ -31,7 +31,7 @@ export default function SideNav() {
   return (
     <div className="sidenav-wrapper lg:w-[16rem]">
       <section className="nav-header border-b border-slate-100 pb-4 pl-6">
-        <Image src="./logo-pontua-dark.svg" alt="logo-dark-version" width={105} height={26} />
+        <Image src="/logo-pontua-dark.svg" alt="logo-dark-version" width={105} height={26} />
       </section>
       <section className="nav-links border-b border-slate-100 flex flex-col text-xs font-medium pl-6">
         {links.map((el, index) => {
