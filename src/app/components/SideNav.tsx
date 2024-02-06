@@ -28,7 +28,7 @@ export default function SideNav() {
   const {...icons} = HIcons;
   const ExitIcon = icons['ArrowUturnLeftIcon'];
   return (
-    <div className="sidenav-wrapper w-[16rem]">
+    <div className="sidenav-wrapper lg:w-[16rem]">
       <section className="nav-header border-b border-slate-100 pb-4 pl-6">
         <img src="./logo-pontua-dark.svg" />
       </section>
