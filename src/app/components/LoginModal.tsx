@@ -3,7 +3,7 @@ import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 
 export default function LoginModal() {
     return (
-        <section className="login-page flex w-full grow justify-end">
+        <section className="login-modal flex w-full grow justify-end mt-2">
           <div className="login-modal flex flex-col bg-white rounded-[1.75rem] w-[31%] h-[27rem] p-[2.25rem] pt-[3rem] self-center">
             <h1 className="text-4xl text-blue-950 font-bold tracking-tighter">
               Bem-vindo<em className="text-red-600 not-italic">.</em>
