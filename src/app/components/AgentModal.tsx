@@ -7,15 +7,24 @@ interface CharacterDataProperties {
 
 import Link from "next/link";
 import { getMarvelAPI } from "../services/axios";
-import { useState, useEffect, useId } from "react";
+import { useState, useEffect, useId, useContext } from "react";
+import { AuthContext } from '../contexts/AuthContext';
 import Select from 'react-select';
 const api = getMarvelAPI({});
 const params = new URLSearchParams({
   apikey: '9a2752cee37c71853530ad4eb3056e4a',
 });
 
+interface agentObject {
+  name: string,
+}
+
 
 export default function AgentModal() {
+  const { setCoolestChar } = useContext(AuthContext);
+  function handleChange(data: agentObject) {
+    setCoolestChar(data.name);
+  }
   const [characters, setCharacters] = useState<CharacterDataProperties[]>([]);
   const url = (url: string) => url + params;
 
@@ -23,7 +32,7 @@ export default function AgentModal() {
     api.get(url('/series/22547/characters?')).then(res => { setCharacters(res.data.data.results) });
   }, []);
 
-  const selectOptions = characters.map((el ,index) => ({...el, label: el.name, value: el.id }));
+  const selectOptions = characters.map((el) => ({...el, label: el.name, value: el.name }));
 
     return (
         <section className="coolest-agent-page flex w-full grow justify-end mt-2">
@@ -35,6 +44,7 @@ export default function AgentModal() {
               Tenha a visão completa do seu agente.
             </p>
             <Select
+              onChange={handleChange}
               className="h-14 text-md text-slate-900 mt-4"
               instanceId={useId()}
               placeholder="Selecionar personagem"
