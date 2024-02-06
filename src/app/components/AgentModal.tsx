@@ -22,9 +22,11 @@ interface agentObject {
 
 export default function AgentModal() {
   const { setCoolestChar } = useContext(AuthContext);
-  function handleChange(data: agentObject) {
-    setCoolestChar(data.name);
+  function handleChange(data: any) {
+    setSelectedAgent(data.name);
+    setCoolestChar(selectedAgent);
   }
+  const [selectedAgent, setSelectedAgent] = useState('');
   const [characters, setCharacters] = useState<CharacterDataProperties[]>([]);
   const url = (url: string) => url + params;
 
