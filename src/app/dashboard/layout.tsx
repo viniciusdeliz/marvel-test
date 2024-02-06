@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { usePathname } from 'next/navigation';
 
-export default function dashboardLayout({ children }: Readonly<{children: React.ReactNode}>) {
+export default function DashboardLayout({ children }: Readonly<{children: React.ReactNode}>) {
   const pathname = usePathname();
 
     return (
