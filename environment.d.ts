@@ -3,7 +3,7 @@ import Next from "next";
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      apikey: string;
+      NEXT_PUBLIC_APIKEY: string;
     }
   }
 }
