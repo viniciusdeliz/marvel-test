@@ -11,8 +11,9 @@ import { useState, useEffect, useId, useContext } from "react";
 import { AuthContext } from '../contexts/AuthContext';
 import Select from 'react-select';
 const api = getMarvelAPI({});
+const apikey = process.env.apikey;
 const params = new URLSearchParams({
-  apikey: '9a2752cee37c71853530ad4eb3056e4a',
+  apikey
 });
 
 interface agentObject {
