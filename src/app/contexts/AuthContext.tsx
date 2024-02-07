@@ -36,9 +36,7 @@ export function AuthProvider({ children }: Readonly<{
   const isAuthenticated = !!user.email;
 
   useEffect(() => {
-    console.log('useEffect RUNNING!');
     const { 'nextauth.token': token, token: userEmail } = parseCookies();
-    console.log('is there a next auth token?', token, userEmail);
     if (token) {
       recoverUserInformation(token).then(response => {
         setUser(response.user)
@@ -47,7 +45,6 @@ export function AuthProvider({ children }: Readonly<{
   }, [])
 
   async function signIn({ email, password }: SignInData) {
-    console.log('sign in...', email, password);
     const { token, user } = await signInRequest({
       email,
       password,
