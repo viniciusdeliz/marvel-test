@@ -7,7 +7,6 @@ interface InputValidationAlertProps {
 }
 
 export default function InputValidatorAlert(props: InputValidationAlertProps) {
-  console.log('received props is...', props);
   const errors = props.errors;
   const name = props.inputName;
   
@@ -20,6 +19,7 @@ export default function InputValidatorAlert(props: InputValidationAlertProps) {
         errors={errors}
         name={name}
         render={({ messages }) => {
+        console.log("messages", messages);
         return messages
           ? Object.entries(messages).map(([type, message]) => (
             <p key={type} className="text-orange-600 text-[.6875rem] before:inline before:content-['⚠'] before:mx-0.5">{message}</p>
