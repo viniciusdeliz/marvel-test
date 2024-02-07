@@ -16,10 +16,10 @@ import { getMarvelAPI } from "../services/axios";
 import { useEffect, useState } from "react";
 
 const api = getMarvelAPI({});
+const apikey = process.env.NEXT_PUBLIC_API_KEY;
 const params = new URLSearchParams({
-  apikey: '9a2752cee37c71853530ad4eb3056e4a',
+  apikey
 });
-
 
 export default function UserDashboard() {
   const [characters, setCharacters] = useState<CharacterDataProperties[]>([]);
